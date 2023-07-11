@@ -1,6 +1,14 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
 </script>
+
 <template>
-  <RouterView />
+  <main>
+    <slot></slot>
+  </main>
 </template>
+
+<style scoped lang="scss">
+main{
+  height: calc(100vh - 108px);
+}
+</style>

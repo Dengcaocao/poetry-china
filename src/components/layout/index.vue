@@ -1,6 +1,8 @@
 <template>
   <Header></Header>
-  <Main></Main>
+  <Main>
+    <slot></slot>
+  </Main>
 </template>
 <script setup lang="ts">
 import Header from './header.vue'
