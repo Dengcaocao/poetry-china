@@ -10,7 +10,7 @@
     </div>
     <div class="annotate">
       <div class="title">[注解]</div>
-      <p v-for="(item, index) in poetry.notes" :key="index">{{ item }}</p>
+      <p>{{ poetry.notes.join('') }}</p>
     </div>
   </div>
 </template>
@@ -64,6 +64,7 @@ const readAloud = () => {
   }
 }
 .annotate {
+  align-self: flex-start;
   .title {
     font-weight: 400;
   }

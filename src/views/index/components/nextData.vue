@@ -58,6 +58,7 @@ watch(() => store.poetryIndex, initInfo)
   text-align: right;
   padding: 10px 20px;
   opacity: 0.6;
+  user-select: none;
   cursor: pointer;
   .info {
     margin-right: 10px;
