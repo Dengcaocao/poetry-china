@@ -2,36 +2,28 @@
   <div class="content-box">
     <div class="poetry">
       <div class="title">
-        {{poetry?.title}}
+        {{poetry.title}}
         <i class="icon iconfont icon-shengyin" @click="readAloud"></i>
       </div>
-      <div class="author">{{poetry?.author}}</div>
-      <p class="content" v-for="item in poetry?.paragraphs" :key="item">{{item}}</p>
+      <div class="author">{{poetry.author}}</div>
+      <p class="content" v-for="item in poetry.paragraphs" :key="item">{{item}}</p>
     </div>
     <div class="annotate">
       <div class="title">[注解]</div>
-      <p v-for="(item, index) in props.poetry?.notes" :key="index">{{ item }}</p>
+      <p v-for="(item, index) in poetry.notes" :key="index">{{ item }}</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, toRefs } from 'vue'
+import { usePoetryStore } from '@/stores/poetry'
 
-const props = defineProps<{
-  poetry: poetryType | undefined
-}>()
-
-export interface poetryType {
-  title: string
-  paragraphs: string[]
-  author: string
-  rhythmic?: string
-  notes: string[]
-}
+const store = usePoetryStore()
+const { poetry } = toRefs(store)
 
 const content = computed(() => {
-  const { title, author, paragraphs } = props.poetry as poetryType
+  const { title, author, paragraphs } = poetry.value
   return title + author + paragraphs
 })
 
