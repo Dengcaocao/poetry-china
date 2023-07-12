@@ -1,5 +1,9 @@
 <template>
-  <div class="preview" :class="props.type">
+  <div
+    v-if="isShow"
+    class="preview"
+    :class="type"
+    @click="store.changeIndex(props.type)">
     <div class="info">
       <div class="title">{{poetry.title}}</div>
       <div class="author">{{poetry.author}}</div>
@@ -9,13 +13,40 @@
 </template>
 
 <script setup lang="ts">
+import { usePoetryStore } from '@/stores/poetry'
+import { computed, reactive, watch } from 'vue'
+
 const props = defineProps<{
-  type: 'last' | 'next',
-  poetry: {
-    title: string,
-    author: string
-  }
+  type: 'last' | 'next'
 }>()
+
+const store = usePoetryStore()
+
+interface poetryInfo {
+  title: string,
+  author: string
+}
+
+let poetry = reactive<poetryInfo>({
+  title: '',
+  author: ''
+})
+
+const isShow = computed(() => {
+  return props.type === 'last' ? store.poetryIndex >= 1 : store.poetryIndex < store.poetryList.length - 2
+})
+
+const initInfo = () => {
+  const constant = props.type === 'last' ? -1 : 1
+  const { title, author } = store.poetryList[store.poetryIndex + constant] || { title: '', author: '' }
+  poetry = {
+    title,
+    author
+  }
+}
+initInfo()
+
+watch(() => store.poetryIndex, initInfo)
 </script>
 
 <style scoped lang="scss">
