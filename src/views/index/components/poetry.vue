@@ -6,7 +6,25 @@
         <i class="icon iconfont icon-shengyin" @click="readAloud"></i>
       </div>
       <div class="author">{{poetry.author}}</div>
-      <p class="content" v-for="item in poetry.paragraphs" :key="item">{{item}}</p>
+      <div class="content">
+        <p class="row" v-for="item in poetry.paragraphs" :key="item">
+          <span
+            class="char-box"
+            :class="{active: configStore.isDictation}"
+            v-for="(char, index) in item"
+            :key="char + index">
+            <span class="char">
+              {{char}}
+            </span>
+            <span class="line"></span>
+          </span>
+        </p>
+        <textarea
+          v-model="poetryStr"
+          v-if="configStore.isDictation"
+          :maxlength="poetry.paragraphs.join('')">
+        </textarea>
+      </div>
     </div>
     <div class="annotate">
       <div class="title">[注解]</div>
@@ -16,15 +34,40 @@
 </template>
 
 <script setup lang="ts">
-import { computed, toRefs } from 'vue'
+import { computed, ref, toRefs, watch } from 'vue'
 import { usePoetryStore } from '@/stores/poetry'
+import { useConfigStore } from '@/stores/config'
 
 const store = usePoetryStore()
+const configStore = useConfigStore()
 const { poetry } = toRefs(store)
+
+const poetryStr = ref('')
 
 const content = computed(() => {
   const { title, author, paragraphs } = poetry.value
   return title + author + paragraphs
+})
+
+const addStrIndex = computed(() => {
+  let lastIndex = 0
+  return poetry.value.paragraphs
+    .map((item, index) => {
+      lastIndex = item.length + lastIndex + (index && 1)
+      return lastIndex
+    })
+})
+
+watch(poetryStr, str => {
+  const index = addStrIndex.value
+    .reverse()
+    .find(item => {
+      return str.length >= item
+    })
+  if (!index) return
+  const poetryCharArr = str.split('');
+  /\n/.test(poetryCharArr[index]) || poetryCharArr.splice(index, 0, '\n')
+  poetryStr.value = poetryCharArr.join('')
 })
 
 const readAloud = () => {
@@ -35,6 +78,7 @@ const readAloud = () => {
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/main.scss';
 .content-box {
   display: flex;
   flex-direction: column;
@@ -58,9 +102,48 @@ const readAloud = () => {
     opacity: 0.6;
   }
   .content {
-    padding: 8px 0;
+    position: relative;
+    textarea {
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: -2px;
+      bottom: 0;
+      outline: none;
+      border-color: transparent;
+      font-size: 22px;
+      line-height: 46px;
+      letter-spacing: 4px;
+      color: $text-color;
+      background-color: transparent;
+    }
+  }
+  .row {
     font-size: 22px;
+    line-height: 46px;
     opacity: 0.8;
+    .char-box {
+      position: relative;
+      letter-spacing: 4px;
+      .line {
+        position: absolute;
+        left: 50%;
+        bottom: -2px;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 2px;
+        background-color: $text-color;
+      }
+      &.active {
+        .char {
+          opacity: 0;
+        }
+        .line {
+          width: 90%;
+        }
+      }
+    }
   }
 }
 .annotate {
