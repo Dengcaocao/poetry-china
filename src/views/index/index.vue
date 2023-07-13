@@ -15,10 +15,11 @@ import NextData from '@/views/index/components/nextData.vue'
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/main.scss';
 .layout {
   position: relative;
   width: 100%;
   height: 100%;
-  color: #4d5562;
+  color: $text-color;
 }
 </style>
