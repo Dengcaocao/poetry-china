@@ -22,7 +22,8 @@
         <textarea
           v-model="poetryStr"
           v-if="configStore.isDictation"
-          :maxlength="poetry.paragraphs.join('')">
+          :rows="poetry.paragraphs.length"
+          :maxlength="poetry.paragraphs.join('').length">
         </textarea>
       </div>
     </div>
@@ -109,7 +110,7 @@ const readAloud = () => {
       top: 0;
       left: 0;
       right: -2px;
-      bottom: 0;
+      bottom: -46px;
       outline: none;
       border-color: transparent;
       font-size: 22px;
