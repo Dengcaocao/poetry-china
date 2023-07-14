@@ -1,6 +1,7 @@
 <template>
   <Layout>
     <div class="layout">
+      <Sider />
       <Poetry />
       <NextData type="last" />
       <NextData type="next" />
@@ -12,6 +13,7 @@
 import Layout from '@/components/layout/index.vue'
 import Poetry from '@/views/index/components/poetry.vue'
 import NextData from '@/views/index/components/nextData.vue'
+import Sider from '@/components/sider/index.vue'
 </script>
 
 <style scoped lang="scss">
