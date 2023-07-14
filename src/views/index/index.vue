@@ -1,12 +1,12 @@
 <template>
   <Layout>
     <div class="layout">
-      <Sider />
       <Poetry />
       <NextData type="last" />
       <NextData type="next" />
     </div>
   </Layout>
+  <Sider />
 </template>
 
 <script setup lang="ts">
