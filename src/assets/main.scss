@@ -2,6 +2,27 @@
 
 $theme-color: #b13a3d;
 $theme-color-bg: rgba($color: $theme-color, $alpha: 0.05);
-$theme-color-bg-deep: rgba($color: $theme-color, $alpha: 0.1);
+$theme-color-bg-deep: rgba($color: $theme-color, $alpha: 0.3);
 $gey-color-bg: #fafafa;
 $text-color: #4d5562;
+
+// 间距
+$gap-small: 4px;
+$gap-middle: 8px;
+$gap-large: 16px;
+
+// 圆角
+$radius-small: 4px;
+$radius-middle: 8px;
+$radius-large: 12px;
+
+// 阴影
+$shadow-small: 0 6px 16px -8px rgba(0, 0, 0, 0.08),
+               0 9px 28px 0 rgba(0, 0, 0, 0.05),
+               0 12px 48px 16px rgba(0, 0, 0, 0.03);
+$shadow-middle: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+                0 6px 16px 0 rgba(0, 0, 0, 0.08),
+                0 9px 28px 8px rgba(0, 0, 0, 0.05);
+$shadow-large: 0 1px 2px -2px rgba(0, 0, 0, 0.16),
+               0 3px 6px 0 rgba(0, 0, 0, 0.12),
+               0 5px 12px 4px rgba(0, 0, 0, 0.09);
