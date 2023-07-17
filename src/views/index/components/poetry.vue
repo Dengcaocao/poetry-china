@@ -93,6 +93,7 @@ const readAloud = () => {
   margin-top: 6px;
   .title {
     font-size: 28px;
+    text-align: center;
     .icon {
       font-size: 28px;
       font-weight: 800;
@@ -100,7 +101,9 @@ const readAloud = () => {
   }
   .author {
     font-size: 16px;
-    opacity: 0.6;
+    opacity: 0.8;
+    text-align: center;
+    line-height: 30px;
   }
   .content {
     position: relative;
@@ -123,7 +126,7 @@ const readAloud = () => {
   .row {
     font-size: 22px;
     line-height: 46px;
-    opacity: 0.8;
+    opacity: 0.9;
     .char-box {
       position: relative;
       letter-spacing: 4px;
