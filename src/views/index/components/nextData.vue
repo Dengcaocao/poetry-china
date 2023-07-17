@@ -57,7 +57,6 @@ watch(() => store.poetryIndex, initInfo)
   top: 20px;
   text-align: right;
   padding: 10px 20px;
-  opacity: 0.6;
   user-select: none;
   cursor: pointer;
   .info {
@@ -65,19 +64,23 @@ watch(() => store.poetryIndex, initInfo)
     font-weight: 400;
     .title {
       font-size: 18px;
+      opacity: 0.8;
     }
     .author {
+      opacity: 0.7;
       font-size: 14px;
     }
   }
+  &:hover {
+    .title {
+      opacity: 1;
+    }
+    .author {
+    opacity: 0.9;
+  }
+  }
   .icon {
     transform: rotate(180deg);
-  }
-}
-.preview:hover {
-  opacity: 1;
-  .author {
-    opacity: 0.9;
   }
 }
 .preview.last {
