@@ -33,7 +33,7 @@ let poetry = reactive<poetryInfo>({
 })
 
 const isShow = computed(() => {
-  return props.type === 'last' ? store.poetryIndex >= 1 : store.poetryIndex < store.poetryList.length - 2
+  return props.type === 'last' ? store.poetryIndex >= 1 : store.poetryIndex < store.poetryList.length - 1
 })
 
 const initInfo = () => {
