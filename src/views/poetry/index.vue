@@ -59,9 +59,6 @@ const pickPoetry = (title: string, data: any, index: number) => {
       cursor: pointer;
       background-color: rgba($color: #fff, $alpha: 0.3);
       box-shadow: $shadow-large;
-      background-image: url('@/assets/tang_author_topK.png');
-      background-position: center;
-      background-size: cover;
       &.active {
         background-color: $theme-color-bg-deep !important;
         .title,.num {
