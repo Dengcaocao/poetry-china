@@ -27,9 +27,9 @@
         </textarea>
       </div>
     </div>
-    <div class="annotate" v-if="configStore.isAnnotate">
+    <div class="annotate" v-if="poetry.notes && configStore.isAnnotate">
       <div class="title">[注解]</div>
-      <p>{{ poetry.notes.join('') }}</p>
+      <p>{{ poetry.notes?.join('') }}</p>
     </div>
   </div>
 </template>
@@ -132,7 +132,7 @@ const readAloud = () => {
         left: 50%;
         bottom: -2px;
         transform: translateX(-50%);
-        width: 100%;
+        width: 0;
         height: 2px;
         background-color: $text-color;
       }
