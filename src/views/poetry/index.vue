@@ -27,6 +27,7 @@ const store = usePoetryStore()
 const pickPoetry = (title: string, data: any, index: number) => {
   // store.$reset()
   store.changeTypeIndex(index)
+  store.changeIndex()
   store.changePoetryList(data)
   store.changeTitle(title)
   router.push('/')

@@ -3,7 +3,7 @@
     v-if="isShow"
     class="preview"
     :class="type"
-    @click="store.changeIndex(props.type)">
+    @click="store.changeIndex(props.type === 'next' ? 1 : -1)">
     <div class="info">
       <div class="title">{{poetry.title}}</div>
       <div class="author">{{poetry.author}}</div>

@@ -19,8 +19,8 @@ export const usePoetryStore = defineStore('poetry', () => {
 
   const changeTypeIndex = (index: number) => typeIndex.value = index 
 
-  const changeIndex = (type: 'last' | 'next') => {
-    type === 'next' ? poetryIndex.value++ : poetryIndex.value--
+  const changeIndex = (index?: number) => {
+    index ? poetryIndex.value += index : poetryIndex.value = 0
   }
 
   const changeTitle = (data: string) => title.value = data
