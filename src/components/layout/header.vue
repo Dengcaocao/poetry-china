@@ -5,7 +5,7 @@
       <h3>Poetry China</h3>
     </a>
     <div class="action">
-      <div class="item chapter">花间集 第一章</div>
+      <div class="item chapter" @click="router.push('poetry')">{{poetryStore.title}}</div>
       <div class="item dictation">
         <i
           class="iconfont icon-zitiyulan"
@@ -44,10 +44,14 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { usePoetryStore } from '@/stores/poetry'
 import { useConfigStore } from '@/stores/config'
 import Switch from '@/components/swtich/index.vue'
 
+const router = useRouter()
 const store = useConfigStore()
+const poetryStore = usePoetryStore()
 
 const status = ref(false)
 </script>

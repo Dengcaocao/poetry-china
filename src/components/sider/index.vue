@@ -3,7 +3,7 @@
     <i class="collapsed iconfont icon-caidan" v-if="isCollapsed" @click="handleCollapseStatus"></i>
     <div class="directory">
       <div class="header">
-        <div class="title">花间集 第一章</div>
+        <div class="title">{{store.title}}</div>
         <i class="iconfont icon-guanbi1" @click="handleCollapseStatus"></i>
       </div>
       <div class="list">

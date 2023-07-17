@@ -1,16 +1,30 @@
-import { ref, reactive, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-import poetryData from 'chinese-poetry/chinese-poetry/wudai/huajianji/huajianji-1-juan.json'
 
 export const usePoetryStore = defineStore('poetry', () => {
   const poetryIndex = ref(0)
-  const poetryList = reactive(poetryData)
+  const title = ref('')
+  const poetryList = ref([])
 
-  const poetry = computed(() => poetryList[poetryIndex.value])
+  const poetry = computed(() => poetryList.value[poetryIndex.value])
 
   const changeIndex = (type: 'last' | 'next') => {
     type === 'next' ? poetryIndex.value++ : poetryIndex.value--
   }
 
-  return { poetryIndex, poetryList, poetry, changeIndex }
+  const changeTitle = (data: string) => title.value = data
+
+  const changePoetryList = (data: any) => {
+    poetryList.value = data
+  }
+
+  return {
+    poetryIndex,
+    title,
+    poetryList,
+    poetry,
+    changeIndex,
+    changeTitle,
+    changePoetryList
+  }
 })
