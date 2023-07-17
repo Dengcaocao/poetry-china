@@ -9,6 +9,6 @@
 
 <style scoped lang="scss">
 main{
-  height: calc(100vh - 108px);
+  height: calc(100vh - 108px - 38px);
 }
 </style>
