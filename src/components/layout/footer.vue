@@ -19,7 +19,7 @@ footer {
   align-items: center;
   justify-content: center;
   color: $text-color;
-  margin-bottom: $gap-large;
+  margin: $gap-middle;
   i,span {
     margin-left: $gap-middle;
     cursor: pointer;
