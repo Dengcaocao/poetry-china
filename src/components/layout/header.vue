@@ -32,7 +32,11 @@
         </Transition>
       </div>
       <div class="item annotate">
-        <i class="iconfont icon-zhongwenxianshi" :class="{active: store.isDictation}"></i>
+        <i
+          class="iconfont icon-zhongwenxianshi" 
+          :class="{active: store.isAnnotate}"
+          @click="store.handleAnnotateStatus">
+        </i>
       </div>
     </div>
   </header>
@@ -100,7 +104,7 @@ header {
         border-radius: $radius-middle;
         font-size: 22px;
         &.active {
-          color: $theme-color;
+          color: $theme-color !important;
         }
       }
     }

@@ -27,7 +27,7 @@
         </textarea>
       </div>
     </div>
-    <div class="annotate">
+    <div class="annotate" v-if="configStore.isAnnotate">
       <div class="title">[注解]</div>
       <p>{{ poetry.notes.join('') }}</p>
     </div>
