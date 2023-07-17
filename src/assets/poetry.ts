@@ -14,40 +14,18 @@ import song300 from 'chinese-poetry/chinese-poetry/ci/宋词三百首.json'
 
 export default [
   {
-    title: '花间集 第一章',
-    data: huajianji1
-  },
-  {
-    title: '花间集 第二章',
-    data: huajianji2
-  },
-  {
-    title: '花间集 第三章',
-    data: huajianji3
-  },
-  {
-    title: '花间集 第四章',
-    data: huajianji4
-  },
-  {
-    title: '花间集 第五章',
-    data: huajianji5
-  },
-  {
-    title: '花间集 第六章',
-    data: huajianji6
-  },
-  {
-    title: '花间集 第七章',
-    data: huajianji7
-  },
-  {
-    title: '花间集 第八章',
-    data: huajianji8
-  },
-  {
-    title: '花间集 第九章',
-    data: huajianji9
+    title: '花间集',
+    data: [
+      ...huajianji1,
+      ...huajianji2,
+      ...huajianji3,
+      ...huajianji4,
+      ...huajianji5,
+      ...huajianji6,
+      ...huajianji7,
+      ...huajianji8,
+      ...huajianji9,
+    ]
   },
   {
     title: '曹操诗集',
