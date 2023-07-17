@@ -23,5 +23,6 @@ import Sider from '@/components/sider/index.vue'
   width: 100%;
   height: 100%;
   color: $text-color;
+  overflow-y: auto;
 }
 </style>
