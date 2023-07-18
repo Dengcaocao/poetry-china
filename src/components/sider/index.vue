@@ -44,6 +44,8 @@ const handleCollapseStatus = () => {
   background-color: rgba(0, 0, 0,0.3);
   &.close {
     width: 0;
+    transition: width 0.2s;
+    transition-delay: 0.2s;
     background-color: transparent;
   }
   &.close .directory {
