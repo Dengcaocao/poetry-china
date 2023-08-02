@@ -38,6 +38,9 @@
           @click="store.handleAnnotateStatus">
         </i>
       </div>
+      <div class="item">
+        <i class="iconfont icon-youxiyouxiji" @click="router.push('play')"></i>
+      </div>
     </div>
   </header>
 </template>
